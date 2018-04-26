@@ -35,7 +35,7 @@ class Atolonline_install extends Install {
         array(
             "name" => "atolonline",
             "admin" => true,
-            "site" => false,
+            "site" => true,
             "site_page" => false,
         ),
     );
