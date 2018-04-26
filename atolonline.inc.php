@@ -51,9 +51,9 @@ class Atolonline_inc extends Model {
 
         try {
             $c = DB::query_result("SELECT COUNT(*) FROM {shop_order}");
-            $order_id = DB::query_result("SELECT id FROM {shop_order} LIMIT ".rand(0,$c).',1');
+            $order_id = DB::query_fetch_value("SELECT id FROM {shop_order} LIMIT ".rand(0,$c).',1','id');
             
-            $return['result'] = $this->sell($order_id);
+            $return['result'] = $this->sell($order_id[0]);
             
         } catch (AtolonlineException $ex) {
             $return['exception'] = $ex->getMessage();
